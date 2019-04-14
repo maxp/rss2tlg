@@ -1,0 +1,48 @@
+
+{ 
+  :source-paths ["src"]
+
+  ;; https://funcool.github.io/httpurr/latest/
+  ;; https://cljs.github.io/api/
+  ;; https://funcool.github.io/tubax/
+
+  :dependencies 
+  [
+    [cider/cider-nrepl "0.21.1"]
+    [cljs-http "0.1.46"]]
+
+  :builds 
+  { 
+    :app-browser 
+    {
+      :target     :browser
+      :output-dir "out/dev"
+      :asset-path "."
+      :modules  { :main {:init-fn app.main/main!}}
+
+      :devtools { ; :after-load app.main/reload!
+                  :http-root "out/dev"
+                  :http-port 8080}
+
+      :release { :output-dir "out/dist"
+                 ;; :module-hash-names 8
+                 :build-options {:manifest-name "assets.edn"}}}
+
+    :app 
+    {
+      :target     :node-script
+      :output-dir "out/dev"
+      :output-to  "out/dev/main.js"
+      :main       app.main/main!
+
+;      :asset-path "."
+;      :modules  { :main {:init-fn app.main/main!}}
+      
+      :release 
+      { 
+        :output-dir "out/dist"
+        :output-to  "out/dist/app.js"}}}}
+             
+;
+
+;;.
