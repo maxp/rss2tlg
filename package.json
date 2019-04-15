@@ -1,26 +1,16 @@
 {
-  "name": "savvateev_news",
-  "version": "0.0.1",
+  "name": "rss2telegram",
+  "version": "0.2.0",
   "description": "",
-  "__main": "index.js",
   "scripts": {
     "watch": "shadow-cljs watch app",
     "compile": "shadow-cljs compile app",
-    "__assets_release": "shadow-cljs release app && cp assets/* out/dist/",
     "release": "shadow-cljs release app",
-    "html": "mkdir -p out/dev && cp assets/* out/dev/",
-    "http-server": "yarn html && http-server out/dev/",
     "clean": "rm -rf out/dist/*",
     "dev": "yarn html && yarn watch",
     "repl": "shadow-cljs node-repl app",
-    "build": "yarn clean && yarn release && chmod +x out/dist/app.js",
+    "build": "yarn clean && yarn release && chmod +x out/dist/rss2telegram.js",
     "server": "shadow-cljs server"
-  },
-  "_react_dependencies": {
-    "@material-ui/core": "3.8.1",
-    "@material-ui/icons": "3.0.1",
-    "react": "16.7.0",
-    "react-dom": "16.7.0"
   },
   "devDependencies": {
     "http-server": "0.11.1",

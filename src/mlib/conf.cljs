@@ -9,7 +9,7 @@
 
 ;; ;; ;; substitute vars ;; ;; ;;
 
-(defn- subst-dollar-vars 
+(defn- subst-dollar-var 
   "substitute string parameters like \"${VAR}\" or \"${VAR:default}\" by os environment variables,
    only the whole parameter value could be replaced with the value of environment variable
   "
@@ -54,7 +54,7 @@
   "substitute ${VAR} parameters in config tree using env values"
   [cfg env]
   (postwalk 
-    #(subst-dollar-vars %1 env)
+    #(subst-dollar-var %1 env)
     cfg))
 ;
 

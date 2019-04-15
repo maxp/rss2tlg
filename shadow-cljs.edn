@@ -32,7 +32,7 @@
     {
       :target     :node-script
       :output-dir "out/dev"
-      :output-to  "out/dev/main.js"
+      :output-to  "out/dev/rss2telegram.js"
       :main       app.main/main!
 
 ;      :asset-path "."
@@ -41,7 +41,7 @@
       :release 
       { 
         :output-dir "out/dist"
-        :output-to  "out/dist/app.js"}}}}
+        :output-to  "out/dist/rss2telegram.js"}}}}
              
 ;
 
