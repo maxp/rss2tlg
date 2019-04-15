@@ -1,6 +1,6 @@
 {
-  "name": "rss2telegram",
-  "version": "0.2.0",
+  "name": "rss2tlg",
+  "version": "0.3.0",
   "description": "",
   "scripts": {
     "watch": "shadow-cljs watch app",
@@ -9,7 +9,7 @@
     "clean": "rm -rf out/dist/*",
     "dev": "yarn html && yarn watch",
     "repl": "shadow-cljs node-repl app",
-    "build": "yarn clean && yarn release && chmod +x out/dist/rss2telegram.js",
+    "build": "yarn clean && yarn release && chmod +x out/dist/rss2tlg.js",
     "server": "shadow-cljs server"
   },
   "devDependencies": {

@@ -2,10 +2,6 @@
 { 
   :source-paths ["src"]
 
-  ;; https://funcool.github.io/httpurr/latest/
-  ;; https://cljs.github.io/api/
-  ;; https://funcool.github.io/tubax/
-
   :dependencies 
   [
     [cider/cider-nrepl "0.21.1"]
@@ -13,36 +9,24 @@
 
   :builds 
   { 
-    :app-browser 
-    {
-      :target     :browser
-      :output-dir "out/dev"
-      :asset-path "."
-      :modules  { :main {:init-fn app.main/main!}}
-
-      :devtools { ; :after-load app.main/reload!
-                  :http-root "out/dev"
-                  :http-port 8080}
-
-      :release { :output-dir "out/dist"
-                 ;; :module-hash-names 8
-                 :build-options {:manifest-name "assets.edn"}}}
-
     :app 
     {
       :target     :node-script
-      :output-dir "out/dev"
-      :output-to  "out/dev/rss2telegram.js"
       :main       app.main/main!
-
-;      :asset-path "."
-;      :modules  { :main {:init-fn app.main/main!}}
-      
+      :output-dir "out/dev"
+      :output-to  "out/dev/rss2tlg.js"
+      ;
+      :js-options 
+      {
+          :js-provider          :shadow 
+          :keep-native-requires true
+          :keep-as-require      #{"ws"}}
+      ;
       :release 
-      { 
+      {
         :output-dir "out/dist"
-        :output-to  "out/dist/rss2telegram.js"}}}}
-             
+        :output-to  "out/dist/rss2tlg.js"}}}}
+        
 ;
 
 ;;.

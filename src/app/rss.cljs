@@ -15,8 +15,11 @@
 ;; https://github.com/r0man/cljs-http
 (defn get-xml [url]
   (go
-    (let [result (<! (http/get url))]
-      (xml->clj (:body result)))))
+    (try
+      (let [result (<! (http/get url))]
+        (xml->clj (:body result)))
+      (catch :default ex
+        (js/console.error (str "get-xml error: " url))))))
 ;
 
 (defn parse-date [s]

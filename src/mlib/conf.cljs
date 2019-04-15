@@ -59,6 +59,11 @@
 ;
 
 
+(defn get-env []
+  (into {} 
+    (-> js/process .-env js/Object.entries js->clj)))
+;
+
 (comment
   (def subst 
     { "VAR1" "qwe123" 

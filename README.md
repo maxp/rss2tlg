@@ -1,38 +1,35 @@
-# savvateev_news bot
+# RSS to Telegram
 
-Repost links to new video from `youtube.com/punkmathematics` (channel_id=UClTIrwj5npeOaBjH6_AkKyA)
-to Telegram channel `t.me/savvateev_xyz`.
+This program is kind of technology demo using ClojureScript as "generic language"
+and it was developed on a weekend especially to deliver updates
+of YouTube channel [Математика - просто](youtube.com/punkmathematics)
+to Telegram channel [@savvateev_xyz](t.me/savvateev_xyz).
 
+It supposed to be started periodically as a cron job.
+Default config file name is `./rss2tlg.edn` but could be changed by `CONFIG_EDN` environment.
+Config parser uses environment variables for `${...}` template substitutions.
+Empty data file `./rss2tlg.data` required at first start.
+See other runtime parameters in source file `config.cljs`.
 
+Example:
+
+```edn
+{
+  :apikey "${APIKEY}"
+  :channel "@savvateev_xyz"
+  :rss-url "https://www.youtube.com/feeds/videos.xml?channel_id=UClTIrwj5npeOaBjH6_AkKyA"
+  :rss-num 1
+}
+```
+
+crontab:  
+
+```bash
+  */5  *  *  *  *  cd /path/to/workdir && ./rss2tlg.js
+```
+
+---
+
+- [maxp.dev](https://maxp.dev)
 - vk.com/alexey_savvateev
-
-
-https://www.youtube.com/feeds/videos.xml?channel_id=UClTIrwj5npeOaBjH6_AkKyA
-
-
-<entry>
-<id>yt:video:rGepKi4lPBE</id>
-<yt:videoId>rGepKi4lPBE</yt:videoId>
-<yt:channelId>UClTIrwj5npeOaBjH6_AkKyA</yt:channelId>
-<title>+38. Кольцо многочленов</title>
-<link rel="alternate" href="https://www.youtube.com/watch?v=rGepKi4lPBE"/>
-<author>
-<name>Математика - просто</name>
-<uri>
-https://www.youtube.com/channel/UClTIrwj5npeOaBjH6_AkKyA
-</uri>
-</author>
-<published>2019-04-03T14:00:08+00:00</published>
-<updated>2019-04-06T09:09:30+00:00</updated>
-</entry>
-
-
-##
-
-youtube url:
-
-https://www.youtube.com/feeds/videos.xml?
-	channel_id=
-	user=
-	list=
-	playlist_id=
+- youtube.com/feeds/videos.xml?channel_id=UClTIrwj5npeOaBjH6_AkKyA
