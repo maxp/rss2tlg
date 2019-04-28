@@ -16,7 +16,7 @@
 ;
 
 ;; NOTE: duplicated in package.json
-(def VERSION "rss2tlg 0.3")
+(def VERSION "rss2tlg 0.4")
 
 (def DEFAULT_CONFIG_FILE "./rss2tlg.edn")
 

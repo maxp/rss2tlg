@@ -1,7 +1,7 @@
 {
   "name": "rss2tlg",
-  "version": "0.3.0",
-  "description": "",
+  "version": "0.4.0",
+  "description": "Send RSS feed to Telegram channel",
   "scripts": {
     "watch": "shadow-cljs watch app",
     "compile": "shadow-cljs compile app",
@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "http-server": "0.11.1",
-    "shadow-cljs": "2.8.31"
+    "shadow-cljs": "2.8.35"
   },
   "author": "i@maxp.dev",
   "license": "EPL-2.0",
