@@ -1,6 +1,6 @@
 {
   "name": "rss2tlg",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Send RSS feed to Telegram channel",
   "scripts": {
     "watch": "shadow-cljs watch app",

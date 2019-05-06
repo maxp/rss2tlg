@@ -33,10 +33,10 @@
 (defn notify [cfg data items]
   (let [data-max (int (:data-max cfg))]
     (go-loop [[f & r] items 
-               d      data]
+               d      (seq data)]
       (when f
-        (let [new-data (->> (conj d f) (take data-max) vec)]
-          (save (:data-file cfg) new-data)  
+        (let [new-data (take data-max (cons f d))]
+          (save (:data-file cfg) (vec new-data))
           (let [rc (<! (send cfg f))]
             (prn "send.rc:" rc))
           (when r
